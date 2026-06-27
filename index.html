@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Security Check</title>
+
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:#000;
+    color:#00ff66;
+    font-family:Consolas, monospace;
+    overflow:hidden;
+}
+
+#terminal{
+    white-space:pre-wrap;
+    font-size:18px;
+    line-height:1.5;
+}
+
+.cursor{
+    animation:blink .8s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="terminal"></div>
+
+<script>
+
+const terminal=document.getElementById("terminal");
+
+const lines=[
+
+"> Initializing security scan...",
+"> Connecting to server...",
+"> Connection established.",
+"> Verifying device...",
+"> Device ID found.",
+"> Checking installed applications...",
+"> Scan complete.",
+"",
+"> Looking for suspicious activity...",
+"> Nothing unusual detected.",
+"> Checking Downloads folder...",
+"> 27 random screenshots found.",
+"> Checking browser history...",
+"> Hmm...",
+"> Interesting choices, erp. 😂",
+"",
+"> Accessing meme collection...",
+"> SUCCESS.",
+"> 3,482 memes detected.",
+"> Respect. 👍",
+"",
+"> Calculating gaming skills...",
+"> FPS detected...",
+"> Aim accuracy: 27%",
+"> Confidence: 100%",
+"",
+"> Checking music taste...",
+"> Result:",
+"> Certified playlist enjoyer.",
+"",
+"> Uploading data to NASA...",
+"> ERROR.",
+"> NASA rejected your files.",
+"",
+"> Contacting FBI...",
+"> Connection failed.",
+"> Reason:",
+"> 'Prank lang daw.'",
+"",
+"> Final system analysis...",
+"> Verdict:",
+"> ERP, NAPRANK KA! 😂😂😂",
+"",
+"> Wala kaming na-access.",
+"> Walang na-delete.",
+"> Walang na-hack.",
+"> Pure HTML animation lang lahat. 😭",
+"",
+"> Salamat sa pag-test, erp!",
+"",
+"> End of transmission."
+
+];
+
+let line=0;
+
+function typeLine(){
+
+    if(line>=lines.length){
+        terminal.innerHTML+="\n<span class='cursor'>█</span>";
+        return;
+    }
+
+    let text=lines[line];
+    let char=0;
+
+    let interval=setInterval(()=>{
+
+        terminal.innerHTML+=text.charAt(char);
+
+        char++;
+
+        if(char>=text.length){
+
+            clearInterval(interval);
+
+            terminal.innerHTML+="\n";
+
+            line++;
+
+            setTimeout(typeLine,300);
+
+        }
+
+    },30);
+
+}
+
+typeLine();
+
+</script>
+
+</body>
+</html>
